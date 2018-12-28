@@ -1,5 +1,5 @@
 ﻿var count = 0;
-
+var test = 0;
 function InitializeMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer();
