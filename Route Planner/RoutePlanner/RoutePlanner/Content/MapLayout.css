@@ -1,0 +1,51 @@
+﻿body {
+}
+
+#Inputs {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#DestinationList {
+    margin: 0;
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 0;
+    overflow: auto;
+    width: 450px;
+    height: 390px;
+}
+
+    #DestinationList li {
+        margin: 8px 12px 3px 10px;
+        display: inline-block;
+        border: solid #000;
+        font-size: 1.4em;
+        padding: 5px;
+        width: 410px;
+    }
+
+#map {
+    margin-left: 100px;
+}
+
+#Distance {
+    margin-top: 20px;
+}
+
+#Time {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#directions-panel {
+    margin-top: 10px;
+    padding: 10px;
+    overflow: scroll;
+    height: 500px;
+    width: 500px;
+}
