@@ -18,8 +18,8 @@
     <table id="Inputs">
         <tr>
             <td>Destination:
-                <input id="startvalue" type="text" style="width: 300px"/>
-                <input id="Add_Item" type="button" value="Add" /></td>
+                <input id="address" type="text" style="width: 300px"/>
+                <input id="Add" type="button" value="Add" /></td>
         </tr>
     </table>
 

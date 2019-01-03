@@ -18,7 +18,8 @@ function InitializeMap() {
     var control = document.getElementById('control');
     control.style.display = 'block';
 
-    document.getElementById('Add_Item').addEventListener('click', function () {
+    var geocoder = new google.maps.Geocoder();
+    document.getElementById('Add').addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
     document.getElementById('Results').addEventListener('click', function () {
@@ -28,11 +29,34 @@ function InitializeMap() {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     });
 }
-
 function geocodeAddress(geocoder, resultsMap) {
-    var address = document.getElementById('startvalue').value;
+    var address = document.getElementById('address').value;
     var destinationList = document.getElementById('DestinationList');
 
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === 'OK') {
+            //Add the item
+            var listItem = document.createElement("li");
+            listItem.appendChild(document.createTextNode(results[0].formatted_address));
+            listItem.setAttribute("id", "element" + count); // id
+            destinationList.appendChild(listItem);
+            count++;
+            //Show the item on the screen
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+/*
+function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById('address').value;
+    var destinationList = document.getElementById('DestinationList');
+    
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             //Add the item
@@ -52,7 +76,7 @@ function geocodeAddress(geocoder, resultsMap) {
         }
     });
 }
-
+*/
 //Calculates the total time and distance of the route
 function totalRoute(directionsService, directionsDisplay) {
     var innerlocations = [];
