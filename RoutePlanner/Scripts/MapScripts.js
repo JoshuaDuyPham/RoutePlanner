@@ -1,5 +1,5 @@
 ﻿var count = 0;
-var test = 0;
+
 function InitializeMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -26,7 +26,7 @@ function InitializeMap() {
         totalRoute(directionsService, directionsDisplay);
     });
     document.getElementById('Optimal').addEventListener('click', function () {
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        optimalRoute(directionsService, directionsDisplay);
     });
 }
 function geocodeAddress(geocoder, resultsMap) {
@@ -52,31 +52,7 @@ function geocodeAddress(geocoder, resultsMap) {
         }
     });
 }
-/*
-function geocodeAddress(geocoder, resultsMap) {
-    var address = document.getElementById('address').value;
-    var destinationList = document.getElementById('DestinationList');
-    
-    geocoder.geocode({ 'address': address }, function (results, status) {
-        if (status === 'OK') {
-            //Add the item
-            var listItem = document.createElement("li");
-            listItem.appendChild(document.createTextNode(results[0].formatted_address));
-            listItem.setAttribute("id", "element" + count); // id
-            destinationList.appendChild(listItem);
-            count++;
-            //Show the item on the screen
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: resultsMap,
-                position: results[0].geometry.location
-            });
-        } else {
-            alert("Invalid Location");
-        }
-    });
-}
-*/
+
 //Calculates the total time and distance of the route
 function totalRoute(directionsService, directionsDisplay) {
     var innerlocations = [];
@@ -105,8 +81,8 @@ function totalRoute(directionsService, directionsDisplay) {
                 for (var i = 0; i < route.legs.length; i++) {
                     var routeSegment = i + 1;
                     summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                        '</b><br> Start:';
-                    summaryPanel.innerHTML += route.legs[i].start_address + '<br> End:';
+                        '</b><br> Start: ';
+                    summaryPanel.innerHTML += route.legs[i].start_address + '<br> End: ';
                     summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
                     summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
                     totaldistance += parseFloat(route.legs[i].distance.text);
@@ -122,13 +98,13 @@ function totalRoute(directionsService, directionsDisplay) {
         alert("Please Enter more than one location");
 }
 //Finds the optimal route
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+function optimalRoute(directionsService, directionsDisplay) {
     var innerlocations = [];
     var ul = document.getElementById("DestinationList");
     var locations = ul.getElementsByTagName("li");
     var totaldistance = 0;
     if (locations.length >= 2) {
-        for (var i = 1; i < locations.length - 1; i++) {
+        for (var i = 1; i < locations.length-1; i++) {
             innerlocations.push({
                 location: locations[i].textContent,
                 stopover: true
@@ -150,8 +126,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                 for (var i = 0; i < route.legs.length; i++) {
                     var routeSegment = i + 1;
                     summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                        '</b><br> Start:';
-                    summaryPanel.innerHTML += route.legs[i].start_address + '<br> End:';
+                        '</b><br> Start: ';
+                    summaryPanel.innerHTML += route.legs[i].start_address + '<br> End: ';
                     summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
                     summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
                     totaldistance += parseFloat(route.legs[i].distance.text);

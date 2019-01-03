@@ -1,6 +1,14 @@
 ﻿body {
 }
-
+.ui-tooltip {
+    top: -10px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 7px black;
+    position: absolute;
+    margin-right: 100px;
+    display: inline-block;
+}
 #Inputs {
     width: 900px;
     margin-left: auto;

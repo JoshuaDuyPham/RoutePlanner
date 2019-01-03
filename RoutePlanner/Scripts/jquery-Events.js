@@ -11,4 +11,20 @@
             }
         });
     });
+    $(function () {
+        $("#destination_list_label").tooltip({
+            position: {
+                my: "center bottom",
+                at: "right",
+                using: function (position, feedback) {
+                    $(this).css(position);
+                    $("<div>")
+                        .addClass("arrow")
+                        .addClass(feedback.vertical)
+                        .addClass(feedback.horizontal)
+                        .appendTo(this);
+                }
+            }
+        });
+    });
 });

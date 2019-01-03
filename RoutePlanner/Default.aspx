@@ -14,18 +14,23 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="./scripts/jquery-Events.js"></script>
-    
+
     <table id="Inputs">
         <tr>
             <td>Destination:
-                <input id="address" type="text" style="width: 300px"/>
+                <input id="address" type="text" style="width: 300px" />
                 <input id="Add" type="button" value="Add" /></td>
         </tr>
     </table>
 
     <table id="control">
         <tr>
-            Destination List
+            <td>
+                <p >Destination List</p>
+            </td>
+            <td>
+                <img src="i.png" id="destination_list_label" title="The first and last destinations are the always the start and end points" style="width: 15px; height: 15px;" />
+            </td>
         </tr>
         <tr>
             <td>
