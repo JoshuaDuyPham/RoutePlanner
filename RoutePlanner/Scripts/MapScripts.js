@@ -4,6 +4,7 @@ function InitializeMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var latlng = new google.maps.LatLng(0, 0);
+
     var myOptions =
     {
         zoom: 8,
@@ -29,6 +30,16 @@ function InitializeMap() {
         optimalRoute(directionsService, directionsDisplay);
     });
 }
+
+//Test Autocomplete
+function initAutocomplete() {
+    var input = document.getElementById('address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initAutocomplete);
+
+//Geocode the address then add it to the list
 function geocodeAddress(geocoder, resultsMap) {
     var address = document.getElementById('address').value;
     var destinationList = document.getElementById('DestinationList');
@@ -104,7 +115,7 @@ function optimalRoute(directionsService, directionsDisplay) {
     var locations = ul.getElementsByTagName("li");
     var totaldistance = 0;
     if (locations.length >= 2) {
-        for (var i = 1; i < locations.length-1; i++) {
+        for (var i = 1; i < locations.length - 1; i++) {
             innerlocations.push({
                 location: locations[i].textContent,
                 stopover: true
@@ -142,22 +153,5 @@ function optimalRoute(directionsService, directionsDisplay) {
     else
         alert("Please Enter more than one location");
 }
-//autocomplete the object based on the user's geographical location,
-/*
-function geolocate() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var geolocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-                center: geolocation,
-                radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-        });
-    }
-}
-*/
+
 window.onload = InitializeMap;

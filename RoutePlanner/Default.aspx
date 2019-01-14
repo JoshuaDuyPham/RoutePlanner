@@ -8,6 +8,8 @@
     <!-- Set up the api for use -->
     <!-- Initialize the map interface -->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDDtvBH76U9KmJUSaAUTn_AkNxfx2dNGKU&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDtvBH76U9KmJUSaAUTn_AkNxfx2dNGKU&libraries=places&callback=initAutocomplete"
+        async defer></script>
     <script type="text/javascript" src="./scripts/MapScripts.js"></script>
 
     <!-- Set up the draggable table -->
@@ -17,8 +19,9 @@
 
     <table id="Inputs">
         <tr>
-            <td>Destination:
-                <input id="address" type="text" style="width: 300px" />
+            <td>
+                <label for="address">Location</label>
+                <input id="address" type="text" size="50" />
                 <input id="Add" type="button" value="Add" /></td>
         </tr>
     </table>
@@ -26,7 +29,7 @@
     <table id="control">
         <tr>
             <td>
-                <p >Destination List</p>
+                <p>Destination List</p>
             </td>
             <td>
                 <img src="i.png" id="destination_list_label" title="The first and last destinations are the always the start and end points" style="width: 15px; height: 15px;" />
@@ -61,7 +64,7 @@
         <p id="Distance">Total Distance: </p>
         <!--<p id="Time">Total Time: </p>-->
     </div>
-    <p>Route Summary</p>
+    <label>Route Summary</label>
     <table>
         <tr>
             <td>
@@ -72,4 +75,5 @@
             </td>
         </tr>
     </table>
+    <!--<asp:Button runat="server" ID="btnPrint" Text="Print" OnClick="btnPrint_Click" />-->
 </asp:Content>
