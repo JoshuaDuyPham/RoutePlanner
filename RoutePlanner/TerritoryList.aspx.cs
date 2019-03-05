@@ -15,10 +15,7 @@ namespace RoutePlanner
     {
         
         public static SqlConnection dbConnection;
-        static string host = "192.168.1.106";
-        static string id = "root";
-        static string pwd = "1234";
-        static string database = "aaa";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             OpenSql();

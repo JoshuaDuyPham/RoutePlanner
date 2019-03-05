@@ -11,12 +11,77 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        /* Links inside the navbar */
+        .TerritoryNav_navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
+        /* The dropdown container */
+        .TerritoryNav_dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            /* Dropdown button */
+            .TerritoryNav_dropdown .TerritoryNav_dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit; /* Important for vertical align on mobile phones */
+                margin: 0; /* Important for vertical align on mobile phones */
+            }
+
+            /* Add a red background color to navbar links on hover */
+            .TerritoryNav_navbar a:hover, .TerritoryNav_dropdown:hover .TerritoryNav_dropbtn {
+                background-color: red;
+            }
+
+        /* Dropdown content (hidden by default) */
+        .TerritoryNav_dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+            .TerritoryNav_dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                /* Add a grey background color to dropdown links on hover */
+                .TerritoryNav_dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        /* Show the dropdown menu on hover */
+        .TerritoryNav_dropdown:hover .TerritoryNav_dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -51,9 +116,19 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" href="~/Territory">Territory</a></li>
                     </ul>
-                    <!--
+
+                    <div class="TerritoryNav_dropdown">
+                        <button class="TerritoryNav_dropbtn">
+                            Territory
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="TerritoryNav_dropdown-content">
+                            <a runat="server" href="~/AddTerritory">Add Territory</a>
+                            <a runat="server" href="~/TerritoryList">Territory List</a>
+                        </div>
+                    </div>
+
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -70,7 +145,6 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
-                    -->
                 </div>
             </div>
         </div>

@@ -177,12 +177,14 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddTerritory.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\MapLayout.css" />
+    <Content Include="Content\NavBar.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\UnorderedList.css" />
     <Content Include="Default.aspx" />
@@ -234,7 +236,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="Territory.aspx" />
+    <Content Include="TerritoryList.aspx" />
     <Content Include="Trashcan.png" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -349,6 +351,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddTerritory.aspx.cs">
+      <DependentUpon>AddTerritory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTerritory.aspx.designer.cs">
+      <DependentUpon>AddTerritory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -387,12 +396,12 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Territory.aspx.cs">
-      <DependentUpon>Territory.aspx</DependentUpon>
+    <Compile Include="TerritoryList.aspx.cs">
+      <DependentUpon>TerritoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Territory.aspx.designer.cs">
-      <DependentUpon>Territory.aspx</DependentUpon>
+    <Compile Include="TerritoryList.aspx.designer.cs">
+      <DependentUpon>TerritoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
